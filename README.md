@@ -5,3 +5,6 @@
 `go run main.go`
 
 ## Run Tests
+
+`go test ./lexer`
+`go test ./parser`
