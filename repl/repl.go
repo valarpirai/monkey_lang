@@ -6,14 +6,19 @@ import (
 	"io"
 	"monkey_lang/lexer"
 	"monkey_lang/token"
+
+	"github.com/fatih/color"
 )
 
-const PROMPT = ">>"
+const PROMPT = ">>> "
 
 func Start(in io.Reader, out io.Writer) {
+	defer color.Unset()
 	scanner := bufio.NewScanner(in)
 	for {
+		color.Set(color.FgYellow)
 		fmt.Printf(PROMPT)
+		color.Set(color.FgWhite)
 		scanned := scanner.Scan()
 		if !scanned {
 			return
